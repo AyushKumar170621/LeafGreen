@@ -1,0 +1,190 @@
+.regbody{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 100%;
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6),rgba(94, 133, 171, 0.6)),url("https://res.cloudinary.com/dsjseacz5/image/upload/v1692550799/laqwkkipiv2yf1rtp7lf.jpg");
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.regcontainer{
+    width: 500px;
+    height: 680px;
+    border: 0px solid rgb(66, 66, 105);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px 30px;
+    opacity: 95%;
+}
+
+
+.regcontainer .back-close{
+    width: 100%;
+    display: flex;
+    justify-content:space-between;
+    margin-left: 160px;
+    font-size: 30px;
+    text-decoration: none;
+    color: #070505;
+}
+
+.regcontainer .back-close a:hover{
+    color: rgb(16, 120, 85);
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    color: #000000;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+}
+
+
+.regcontainer .reginput-box p{
+    width: 100%;
+    text-align: left;
+    padding-left: 10px;
+    font-size: larger;
+    font-size: 18px;
+    font-weight: bold;
+    color: #464a45;
+}
+
+.regcontainer .reginput-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 5px 0;
+    
+}
+
+.reginput-box input:focus{
+    outline: 0;
+}
+
+.regnput-box.success input{
+    border-color: #3c6149;
+}
+
+.reginput-box.error input{
+    border-color: #ff3860;
+}
+
+.reginput-box .error{
+    color: #ff3860;
+    font-size: 9px;
+    height: 13px;
+}
+
+.regcontainer .reguser-name{
+    margin-bottom: 50px;
+}
+
+.reginput-box input{
+    width: 100%;
+    height: 90%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(153, 148, 148, 0.358);
+    border-radius: 40px;
+    font-size: 15px;
+    color: #464040;
+    padding: 10px 20px 10px 14px;
+}
+
+.reginput-box input::placeholder{
+    color: #6b6565;
+}
+
+.reginput-box i{
+    position: absolute;
+    right: 13px;
+    top: 85%;
+    transform: translateY(-50%);
+    font-size: 23px;
+    color: #000000;
+}
+
+.regcontainer .forgot{
+    justify-content: space-between;
+    font-size: 15px;
+    padding-top: 5px;
+    margin: -8px 0 5px;
+}
+
+
+.forgot p{
+    display: inline;
+}
+
+.forgot label{
+    color:#302c2c;
+}
+
+.forgot a{
+    color: #000000;
+    text-decoration: underline;
+    font-weight:bolder;
+}
+
+.forgot a:hover{
+    text-decoration: underline;
+}
+
+.regcontainer .btn{
+    width: 50%;
+    height: 50px;
+    background: #20461a;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+    font-size: 19px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.regcontainer .btn:hover{
+    background-color: #3c6149;
+}
+
+.regcontainer .register-link{
+    text-align: center;
+    font-size: 15px;
+    margin-top: 5px;
+    color: #302c2c;
+}
+
+.register-link a{
+    text-decoration:underline;
+    color: #000000;
+    font-weight: 600;
+}
+
+
+.regcontainer .terms{
+    font-size: 13px;
+    text-align: center;
+    color: #3b3838;
+    margin-top: 10px;
+}
+
+.terms a{
+    color: #000000;
+    font-weight: 600;
+}
+
+.register-link > a:hover{
+    color:rgb(11, 124, 86)
+}

@@ -1,0 +1,83 @@
+/* styles.css */
+.shipping-progress {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .checkpoint {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .checkpoint i {
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+  
+  .checkpoint p {
+    font-size: 14px;
+  }
+  .sine-wave {
+    content: "";
+    width: 20px; /* Adjust the width of the wave line as needed */
+    height: 2px; /* Adjust the height of the wave line as needed */
+    background-color: #f00; /* Set the color of the wave line as needed */
+    animation: sineWave 1s ease-in-out infinite; /* Apply the sinusoidal wave animation */
+  }
+  
+  .wave-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 10px; /* Adjust the height of the container as needed */
+  }
+  @keyframes heartbeat {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      width: 0;
+    }
+    50% {
+      width: 20px;
+    }
+    100% {
+      width: 0;
+    }
+  }
+  
+  @keyframes sineWave {
+    0% {
+      transform: translateY(0);
+    }
+    25% {
+      transform: translateY(-5px);
+    }
+    50% {
+      transform: translateY(0);
+    }
+    75% {
+      transform: translateY(5px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  
+  
+  
+  
+  

@@ -1,0 +1,75 @@
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+  }
+
+  .col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+  }
+
+
+  input[type=text],[type=email],[type=tel],
+  select,
+  textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+
+  label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+  }
+
+  input[type=submit] {
+    background-color: #04AA6D;
+    height:50px;
+    width:100px;
+    color: white;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    float: right;
+  }
+
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+
+  .continer {
+    border-radius: 5px;
+    background-color: white;
+    padding: 20px;
+  }
+
+ 
+
+  /* Clear floats after the columns */
+  .row::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .su {
+    float: right;
+  }
+  .faq{
+    justify-content: center;
+    text-align: center;
+    font-size: larger;
+  }
+  #profileimg{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  margin-top: auto;
+  margin-bottom: 15px;
+  }

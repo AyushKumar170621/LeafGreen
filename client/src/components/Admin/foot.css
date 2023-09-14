@@ -1,0 +1,29 @@
+.foot{
+    display: flex;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    justify-content: center;
+    background-color: #F1F6F9;
+}
+.fot-list{
+    display: flex;
+    text-align: center;
+}
+.fot-list li{
+    padding: 20px;
+    font-size: medium;
+}
+.fot-list li Link{
+    color: #394867;
+    text-decoration: none;
+    font-weight: bolder;
+}
+.fot-list li Link:hover{
+    color: #00FFCA;
+}
+
+
+.adminnav{
+    color: var(--light);
+}

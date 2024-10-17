@@ -68,7 +68,7 @@ exports.getAdminProducts = catchAsyncErrors(async (req, res, next) => {
 
 //update product - Admin
 exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
-  let product = Product.findById(req.params.id);
+  let product =await Product.findById(req.params.id)
   if (!product) {
     return next(new ErrorHandler("Product Not Found", 404));
   }
@@ -80,7 +80,6 @@ exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
   } else {
     images = req.body.images;
   }
-
   if (images !== undefined) {
     // Deleting Images From Cloudinary
     for (let i = 0; i < product.images.length; i++) {

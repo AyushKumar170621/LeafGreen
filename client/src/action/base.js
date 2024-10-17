@@ -1,1 +1,1 @@
-export const baseURL="http://ec2-65-2-30-231.ap-south-1.compute.amazonaws.com/";
+export const baseURL="http://localhost:4000/";

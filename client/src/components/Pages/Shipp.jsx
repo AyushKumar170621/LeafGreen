@@ -41,7 +41,7 @@ const Shipp = () => {
       prefill: {
         name: "Ayush Kumar",
         email: "ayush.kumar@example.com",
-        contact: "7004714475",
+        contact: "5055052",
       },
       notes: {
         address: "Razorpay Corporate Office",

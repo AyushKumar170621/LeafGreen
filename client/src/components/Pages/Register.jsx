@@ -30,7 +30,6 @@ function Register(){
     myForm.set("password", user.password);
     myForm.set("avatar", avatar);
     dispatch(register(myForm));
-    window.alert("Sucessfully registered");
   };
 
   const registerDataChange = (e) => {
@@ -51,7 +50,7 @@ function Register(){
   };
   useEffect(() => {
     if (error) {
-      toast.alert(error,{
+      toast.error(error,{
         position: toast.POSITION.TOP_CENTER,
         autoClose:2000,
       })

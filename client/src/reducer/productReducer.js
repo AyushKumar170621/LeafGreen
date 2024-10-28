@@ -185,6 +185,7 @@ export const productReducer = (state = {}, action) => {
       };
     case DELETE_PRODUCT_FAIL:
     case UPDATE_PRODUCT_FAIL:
+      console.error("Error occurred:", action.payload); // Log error
       return {
         ...state,
         loading: false,

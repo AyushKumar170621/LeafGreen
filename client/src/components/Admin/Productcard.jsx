@@ -1,28 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import {clearErrors,updateProduct, deleteProduct} from "../../action/productAction";
-import { useDispatch,useSelector } from "react-redux";
-import { UPDATE_PRODUCT_RESET,DELETE_PRODUCT_RESET } from "../../constant/productConstant";
+import React, { useState} from "react";
 
-const ProductCard = ({ product}) => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const {
-    loading,
-    error: updateError,
-    isUpdated,
-    error: deleteError,
-     isDeleted
-  } = useSelector((state) => state.product);
+const ProductCard = ({ product, onUpdate, onDelete}) => {
+  // const {
+  //   loading,
+  //   error: updateError,
+  //   isUpdated,
+  //   error: deleteError,
+  //    isDeleted
+  // } = useSelector((state) => state.product);
   const [isEditing, setIsEditing] = useState(false);
   const modifieddis = product.description.slice(0,50)+'...';
-  const [name, setName] = useState("");
-  const [price, setPrice] = useState(0);
-  const [description, setDescription] = useState("");
-  const [category, setCategory] = useState("");
-  const [stock, setStock] = useState(0);
+  const [name, setName] = useState(product.name);
+  const [price, setPrice] = useState(product.price);
+  const [description, setDescription] = useState(product.description);
+  const [category, setCategory] = useState(product.category);
+  const [stock, setStock] = useState(product.stock);
   const [images, setImages] = useState([]);
   const [oldImages, setOldImages] = useState([]);
   const [imagesPreview, setImagesPreview] = useState([]);
@@ -37,7 +29,8 @@ const ProductCard = ({ product}) => {
   };
 
   const handleDeleteClick = () => {
-      dispatch(deleteProduct(product._id));
+    onDelete(product._id);
+      // dispatch(deleteProduct(product._id));
   };
 
 
@@ -55,48 +48,9 @@ const ProductCard = ({ product}) => {
     images.forEach((image) => {
       myForm.append("images", image);
     });
-    dispatch(updateProduct(product._id, myForm));
+    onUpdate(product._id, myForm);
   };
-  useEffect(() => {
-
-    if (deleteError) {
-      toast.error(deleteError,{
-        position: toast.POSITION.TOP_CENTER,
-        autoClose: 2000,
-      });
-      dispatch(clearErrors());
-    }
-    if(updateError)
-    {
-      toast.error(updateError,{
-        position: toast.POSITION.TOP_CENTER,
-        autoClose: 2000,
-      });
-      dispatch(clearErrors());
-    }
-    if (isDeleted) {
-      dispatch({ type: DELETE_PRODUCT_RESET });
-      toast.success("Product Deleted Successfully",{
-        autoClose: 2000,
-        position: toast.POSITION.TOP_CENTER,
-        onClose: () => {
-          navigate("/admin");
-        },
-      });
-      
-    }
-    if (isUpdated) {
-      dispatch({ type: UPDATE_PRODUCT_RESET });
-      toast.success("Product Updated Successfully",{
-        autoClose: 2000,
-        position: toast.POSITION.TOP_CENTER,
-        onClose: () => {
-          navigate("/admin");
-        },
-      });
-    }
-
-  }, [dispatch, updateError, deleteError, isDeleted, isUpdated, navigate]);
+  
   const updateProductImagesChange = (e) => {
     const files = Array.from(e.target.files);
 
@@ -120,7 +74,6 @@ const ProductCard = ({ product}) => {
 
   return (
     <div className="card m-2 " style={{ width: "18rem" }}>
-    <ToastContainer />
     <form onSubmit={updateProductSubmitHandler}>
       {isEditing ? (
         <input
@@ -141,59 +94,80 @@ const ProductCard = ({ product}) => {
       <div className="card-body">
         <h5 className="card-title">
           {isEditing ? (
+            <>
+            <label htmlFor="name" className="form-label-style">Product Name</label>
             <input
               type="text"
               name="name"
+              id="name"
+              value={product.name}
               onChange={(e)=>{setName(e.target.value)}}
               className="form-control mb-2"
-            />
+              />
+            </>
           ) : (
             product.name
           )}
         </h5>
         <p className="card-text">
           {isEditing ? (
+            <>
+            <label htmlFor="description" className="form-label-style">Description</label>
             <input
               type="text"
               name="description"
+              id="description"
+              value={modifieddis}
               onChange={(e)=>{setDescription(e.target.value)}}
               className="form-control mb-2"
-            />
+              />
+            </>
           ) : (
             modifieddis
           )}
         </p>
         <p className="card-text">
-          {isEditing ? (
+          {isEditing ? (<>
+            <label htmlFor="stock" className="form-label-style">Stock</label>
             <input
               type="number"
               name="stock"
+              value={product.stock}
+              id="stock"
               onChange={(e)=>{setStock(e.target.value)}}
               className="form-control mb-2"
             />
+            </>
           ) : (
             `Stock: ${product.stock}`
           )}
         </p>
         <p className="card-text">
-          {isEditing ? (
+          {isEditing ? (<>
+            <label htmlFor="price" className="form-label-style">Price</label>
             <input
               type="number"
+              id="price"
+              value={product.price}
               name="price"
               onChange={(e)=>{setPrice(e.target.value)}}
               className="form-control mb-2"
             />
+            </>
           ) : (
             `Price: ${product.price}`
           )}
         </p>
         <p className="card-text">
           {isEditing ? (
-            <select className="form-select" aria-label="Default select example" onChange={(e)=>{setCategory(e.target.value)}}>
-                <option value="" selected>Category</option>
-                <option value="Vegetable">Vegetables</option>
-                <option value="Fruit">Fruits</option>
-            </select>
+              <>
+                <label htmlFor="category" className="form-label-style">Category</label>
+                <select className="form-select" id="category" aria-label="Default select example" value={product.category} onChange={(e)=>{setCategory(e.target.value)}}>
+                    <option value="" selected disabled>Category</option>
+                    <option value="Vegetable">Vegetables</option>
+                    <option value="Fruit">Fruits</option>
+                </select>
+              </>
           ) : (
             `Category: ${product.category}`
           )}

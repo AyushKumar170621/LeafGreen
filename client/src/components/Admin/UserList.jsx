@@ -6,9 +6,10 @@ import Adnav from './Adnav';
 import Adfoot from './Adfoot';
 import UCard from './UCard';
 import { getAllUsers,clearErrors} from '../../action/userAction';
+import Spinner from '../Loading/Spinner';
 const UserList = () => {
     const dispatch = useDispatch();
-    const { error, users } = useSelector((state) => state.allUsers);
+    const {laoding, error, users } = useSelector((state) => state.allUsers);
     useEffect(() => {
         if (error) {
           toast.error(error,{
@@ -20,15 +21,16 @@ const UserList = () => {
     
         dispatch(getAllUsers());
       }, [dispatch,  error]);
-  return (
-    <Fragment>
-        <Adnav/>
-        <ToastContainer/>
-        <div class="row row-cols-1 row-cols-md-3 g-4  bg-light">
-            {users && users.map((user)=>(<UCard user={user}/>))}
-        </div>
-        <Adfoot/>
-    </Fragment>
+  return (<>{laoding?<Spinner/>:
+  <Fragment>
+      <Adnav/>
+      <ToastContainer/>
+      <div class="row row-cols-1 row-cols-md-3 g-4  bg-light">
+          {users && users.map((user)=>(<UCard user={user}/>))}
+      </div>
+      <Adfoot/>
+  </Fragment>}</>
+    
   )
 }
 

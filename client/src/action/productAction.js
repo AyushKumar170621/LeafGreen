@@ -109,6 +109,9 @@ export const createProduct = (productData) => async (dispatch) => {
       type: NEW_PRODUCT_SUCCESS,
       payload: data,
     });
+    dispatch({
+      type: NEW_PRODUCT_RESET
+    });
   } catch (error) {
     dispatch({
       type: NEW_PRODUCT_FAIL,
@@ -131,6 +134,9 @@ export const newReview = (reviewData) => async (dispatch) => {
     dispatch({
       type: NEW_REVIEW_SUCCESS,
       payload: data.success,
+    });
+    dispatch({
+      type: NEW_REVIEW_RESET
     });
   } catch (error) {
     dispatch({
@@ -159,12 +165,16 @@ export const updateProduct = (id, productData) => async (dispatch) => {
       type: UPDATE_PRODUCT_SUCCESS,
       payload: data.success,
     });
+
   } catch (error) {
+    console.error("Update failed:", error.response.data);
     dispatch({
       type: UPDATE_PRODUCT_FAIL,
       payload: error.response.data.message,
     });
   }
+
+  
 };
 
 // Delete Product
@@ -178,6 +188,7 @@ export const deleteProduct = (id) => async (dispatch) => {
       type: DELETE_PRODUCT_SUCCESS,
       payload: data.success,
     });
+
   } catch (error) {
     dispatch({
       type: DELETE_PRODUCT_FAIL,

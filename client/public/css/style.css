@@ -388,3 +388,7 @@
     border:solid black;
     border-radius: 5px;
 }
+.form-label-style{
+    margin-bottom: 0.2rem;
+    padding: 0 2px;
+}

@@ -34,7 +34,7 @@ const AddProduct = () => {
             position: toast.POSITION.TOP_CENTER,
             onClose: () =>{
                 dispatch({ type: NEW_PRODUCT_RESET });
-                navigate("/admin");
+                navigate("/admin/products");
             }
           })     
         }

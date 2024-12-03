@@ -14,7 +14,7 @@ const Crousel = () => {
                                 <div className="col-lg-7 text-center">
                                     <p className="fs-4 text-white animated slideInDown">Welcome to <strong className="text-dark">Leaf Green</strong></p>
                                     <h1 className="display-1 text-dark mb-4 animated slideInDown">Fresh & Quality Vegetable</h1>
-                                    <a href="/products" className="btn btn-light rounded-pill py-3 px-5 animated slideInDown">Explore More</a>
+                                    <a href="https://leafgreen-1.onrender.com/products" className="btn btn-light rounded-pill py-3 px-5 animated slideInDown">Explore More</a>
                                 </div>
                             </div>
                         </div>
